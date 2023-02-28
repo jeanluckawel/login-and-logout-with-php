@@ -1,7 +1,16 @@
 <?php
   
-    $con = mysqli_connect("localhost","root","root","LoginSystem");
-    if (mysqli_connect_errno()){
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    }
+  $dsn = "mysql:host=localhost;dbname=LoginSystem;charset=utf8";
+  $username = "root";
+  $password = "";
+  try {
+      $pdo = new PDO($dsn, $username, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+      echo 'sucess';
+      return $pdo;
+      }
+  catch (PDOException $e) {
+       die('Error : '.$e->getMessage());
+      }
+
+
 ?>
