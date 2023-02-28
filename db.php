@@ -1,16 +1,9 @@
 <?php
-  
-  $dsn = "mysql:host=localhost;dbname=LoginSystem;charset=utf8";
-  $username = "root";
-  $password = "";
-  try {
-      $pdo = new PDO($dsn, $username, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-      echo 'sucess';
-      return $pdo;
-      }
-  catch (PDOException $e) {
-       die('Error : '.$e->getMessage());
-      }
-
-
+    // Enter your host name, database username, password, and database name.
+    // If you have not set database password on localhost then set empty.
+    $con = mysqli_connect("localhost","root","","LoginSystem");
+    // Check connection
+    if (mysqli_connect_errno()){
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
 ?>
